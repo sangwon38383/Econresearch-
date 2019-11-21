@@ -151,7 +151,7 @@ def simulation(repeat,quota_list):
         avers=list()
         fprobs=list()
         for i in range(repeat):
-            allodict,X=ps.modified_probabilistic_serial_mechanism(reportedR,cap)
+            allodict,X=ps.modified_probabilistic_serial_mechanism(reportedR, cap, quota, obj_num, objA_num, objB_num, stu_num, stuA_num, stuB_num)
             postallo=bvn(X,constraint_structure)
             aver=averf(X)
             fprob=fprobf(X)
