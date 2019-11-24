@@ -66,9 +66,9 @@ def modified_probabilistic_serial_mechanism(R, m, quota, obj_num, objA_num, objB
     # if an object has no remaining probability mass, remove it from the rank order lists
     for key,value in Q.items():
         if 0<=key<stuA_num:
-            Q[key] = [i for i in value if (objA_num<=i<objA_num+objB_num and q[i] > TOLERANCE and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE) or (0<=i<objA_num and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE)]
+            Q[key] = [i for i in value if (objA_num<=i<objA_num+objB_num and q[i] > TOLERANCE and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE) or (0<=i<objA_num and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE) or (objA_num+objB_num<=i<obj_num and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE)]
         elif stuA_num<=key<stu_num:
-            Q[key] = [i for i in value if (0<=i<objA_num and q[i] > TOLERANCE and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE) or (objA_num<=i<objA_num+objB_num and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE)]
+            Q[key] = [i for i in value if (0<=i<objA_num and q[i] > TOLERANCE and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE) or (objA_num<=i<objA_num+objB_num and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE) or (objA_num+objB_num<=i<obj_num and t[i] > TOLERANCE and P[key][i] < 1-TOLERANCE and sum(P[key])<6-TOLERANCE)]
     # if an object has no remaining probability mass, remove it from the rank order lists
     # define a zero vector whose dimension equals the number of objects
     y = np.zeros(len(t))
